@@ -1,0 +1,15 @@
+{
+    "compilerOptions": {
+        "baseUrl": ".",
+        "module": "commonJS",
+        "paths": {
+            "@components": ["components"],
+            "@components/*": ["components/*"],
+            "@layouts": ["layouts"],
+            "@layouts/*": ["layouts/*"],
+            "@hooks": ["hooks"],
+            "@hooks/*": ["hooks/*"],
+        }
+    },
+    "exclude": ["node_modules", ".vscode", ".next"]
+}

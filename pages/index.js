@@ -1,5 +1,9 @@
 import Head from 'next/head'
 import PropTypes from 'prop-types'
+/** components */
+import { Footer, Navigation } from '@components'
+
+/** utils */
 import { connectToDatabase } from '../util/mongodb'
 
 export default function Home({ isConnected }) {
@@ -10,7 +14,9 @@ export default function Home({ isConnected }) {
 				<title>Create Next App</title>
 				<link rel="icon" href="/favicon.ico" />
 			</Head>
+			<Navigation />
 			<h1>Flashcard App</h1>
+			<Footer />
 		</div>
 	)
 }
