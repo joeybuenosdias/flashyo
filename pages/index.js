@@ -225,7 +225,7 @@ export default function Home({ isConnected }) {
 export async function getServerSideProps(context) {
   const { client, db } = await connectToDatabase()
   const isConnected = await client.isConnected()
-  const cards = await db.collection('cards').find({ question: 'Who was the first president?' }).toArray()
+  const cards = await db.collection('cards').find({}).toArray()
   console.log('cards', cards)
 
   return {
