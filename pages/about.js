@@ -11,7 +11,8 @@ async function handleFetch(url) {
 }
 
 export default function About() {
-	const { error, data } = useSWR('/api/cards/1234', handleFetch)
+	const { error, data } = useSWR('/api/cards/60424c0a0c3646c44d45de4f', handleFetch)
+	console.log('data', data)
 
 	if (error) return <div>Error loading page</div>
 	if (!data) {

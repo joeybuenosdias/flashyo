@@ -3,6 +3,9 @@ https://www.kyrelldixon.com/blog/setup-jest-and-react-testing-library-with-nextj
 https://testing-library.com/docs/react-testing-library/intro/
 https://testing-library.com/docs/dom-testing-library/cheatsheet
 
+# Using SWR for client side requests
+https://dev.to/ryanccn/data-fetching-with-next-js-38b6
+
 
 
 ## Example app using MongoDB
