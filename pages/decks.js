@@ -22,7 +22,7 @@ export default function Decks({ decks }) {
 				<link rel="icon" href="/favicon.ico" />
 			</Head>
 			<Navigation />
-			<h1>Flashcard App</h1>
+			<h1>Decks</h1>
 			<DeckProvider decks={decks}>
 				<DeckForm />
 				<DeckList />
