@@ -1,14 +1,20 @@
 import Head from 'next/head'
 import PropTypes from 'prop-types'
+import { ObjectID } from 'mongodb'
+
 /** components */
-import { Footer, Navigation, DeckForm } from '@components'
+import {
+	Footer,
+	Navigation,
+	DeckForm,
+	DeckList,
+} from '@components'
 import DeckProvider from '../components/deck-form/deck-provider'
 
 /** utils */
 import { connectToDatabase } from '../util/mongodb'
 
-export default function Decks({ isConnected }) {
-	console.log('isConnected', isConnected)
+export default function Decks({ decks }) {
 	return (
 		<div className="container">
 			<Head>
@@ -17,8 +23,9 @@ export default function Decks({ isConnected }) {
 			</Head>
 			<Navigation />
 			<h1>Flashcard App</h1>
-			<DeckProvider>
+			<DeckProvider decks={decks}>
 				<DeckForm />
+				<DeckList />
 			</DeckProvider>
 			<Footer />
 		</div>
@@ -26,16 +33,22 @@ export default function Decks({ isConnected }) {
 }
 
 Decks.propTypes = {
-	isConnected: PropTypes.bool.isRequired,
+	decks: PropTypes.array.isRequired,
 }
 
 export async function getServerSideProps() {
-	const { client, db } = await connectToDatabase()
-	const isConnected = await client.isConnected()
-	const taxonomies = await db.collection('taxonomies').find({}).toArray()
-	console.log('cards', taxonomies)
+	const { db } = await connectToDatabase()
+	const ssrDecks = await db.collection('taxonomies').find({}).toArray()
+
+	const finalSsrDecks = ssrDecks.map((deck) => ({
+		// eslint-disable-next-line no-underscore-dangle
+		id: ObjectID(deck._id).toString(),
+		name: deck.name,
+	}))
 
 	return {
-		props: { isConnected },
+		props: {
+			decks: finalSsrDecks,
+		},
 	}
 }

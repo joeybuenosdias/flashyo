@@ -1,7 +1,7 @@
 import React from 'react'
 import axios from 'axios'
-import useSWR from 'swr'
 
+/** hooks */
 import { useDeckContext } from './deck-provider'
 
 /** Add/Edit Taxonomy */
@@ -16,26 +16,20 @@ export default function DeckForm() {
 		setNewDeckName(e.target.value)
 	}
 
-	async function handleClick() {
-		if (!newDeckName) {
-			console.log('Please enter a name')
-		} else {
-			const { data } = await axios.post('/api/decks', {
-				name: newDeckName,
-			})
-			/** update new list of decks on the right side */
-			console.log('DATA', data)
-			setDecks(data)
-		}
+	function handleAddDeck() {
+		axios.post('/api/decks', {
+			name: newDeckName,
+		}).then((res) => {
+			setDecks(res.data)
+			setNewDeckName('')
+		})
 	}
-
-	const { data: newForm, error } = useSWR('/decks', handleClick)
 
 	return (
 		<div>
 			<form onSubmit={(e) => e.preventDefault()}>
 				<input onChange={handleChange} value={newDeckName} />
-				<button onClick={handleClick} type="button">
+				<button onClick={handleAddDeck} type="button">
 					Submit
 				</button>
 			</form>
