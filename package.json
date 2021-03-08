@@ -8,11 +8,13 @@
     "test": "jest --watch"
   },
   "dependencies": {
+    "axios": "^0.21.1",
     "mongodb": "^3.5.9",
     "next": "latest",
     "prop-types": "^15.7.2",
     "react": "^16.13.1",
-    "react-dom": "^16.13.1"
+    "react-dom": "^16.13.1",
+    "swr": "^0.4.2"
   },
   "license": "MIT",
   "devDependencies": {
