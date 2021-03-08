@@ -2,15 +2,15 @@ import React from 'react'
 import axios from 'axios'
 
 /** hooks */
-import { useDeckContext } from './deck-provider'
+import { useDecksContext } from './decks-provider'
 
 /** Add/Edit Taxonomy */
-export default function DeckForm() {
+export default function DecksForm() {
 	const {
 		setDecks,
 		newDeckName,
 		setNewDeckName,
-	} = useDeckContext()
+	} = useDecksContext()
 
 	function handleChange(e) {
 		setNewDeckName(e.target.value)

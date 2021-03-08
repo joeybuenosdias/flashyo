@@ -6,10 +6,8 @@ import { ObjectID } from 'mongodb'
 import {
 	Footer,
 	Navigation,
-	DeckForm,
-	DeckList,
+	DecksSection,
 } from '@components'
-import DeckProvider from '../components/deck-form/deck-provider'
 
 /** utils */
 import { connectToDatabase } from '../util/mongodb'
@@ -22,11 +20,7 @@ export default function Decks({ decks }) {
 				<link rel="icon" href="/favicon.ico" />
 			</Head>
 			<Navigation />
-			<h1>Decks</h1>
-			<DeckProvider decks={decks}>
-				<DeckForm />
-				<DeckList />
-			</DeckProvider>
+			<DecksSection decks={decks} />
 			<Footer />
 		</div>
 	)

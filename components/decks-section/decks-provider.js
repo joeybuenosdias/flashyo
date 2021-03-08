@@ -6,10 +6,10 @@ import {
 } from 'react'
 import PropTypes from 'prop-types'
 
-const DeckContext = createContext()
-export const useDeckContext = () => useContext(DeckContext)
+const DecksContext = createContext()
+export const useDecksContext = () => useContext(DecksContext)
 
-export default function DeckProvider({ children, decks: ssrDecks }) {
+export default function DecksProvider({ children, decks: ssrDecks }) {
 	const [decks, setDecks] = useState(ssrDecks)
 	const [newDeckName, setNewDeckName] = useState('')
 
@@ -25,10 +25,10 @@ export default function DeckProvider({ children, decks: ssrDecks }) {
 		setNewDeckName,
 	])
 
-	return <DeckContext.Provider value={newValue}>{ children }</DeckContext.Provider>
+	return <DecksContext.Provider value={newValue}>{ children }</DecksContext.Provider>
 }
 
-DeckProvider.propTypes = {
+DecksProvider.propTypes = {
 	children: PropTypes.node.isRequired,
 	decks: PropTypes.array.isRequired,
 }

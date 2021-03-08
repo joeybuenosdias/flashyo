@@ -1,10 +1,10 @@
 import React from 'react'
 
 /** hooks */
-import { useDeckContext } from './deck-provider'
+import { useDecksContext } from './decks-provider'
 
-export default function DeckList() {
-	const { decks } = useDeckContext()
+export default function DecksList() {
+	const { decks } = useDecksContext()
 	return (
 		<div>
 			<ul style={{
