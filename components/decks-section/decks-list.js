@@ -1,4 +1,5 @@
 import React from 'react'
+import Link from 'next/link'
 
 /** hooks */
 import { useDecksContext } from './decks-provider'
@@ -16,7 +17,10 @@ export default function DecksList() {
 				{decks.map((deck) => (
 					<li key={deck.id}>
 						<div style={{ margin: '16px' }}>
-							<a href="#changeme">{deck.name}</a>
+							<Link href={`/decks/${deck.id}`}>
+								{/* eslint-disable-next-line jsx-a11y/anchor-is-valid */}
+								<a>{deck.name}</a>
+							</Link>
 							<button type="button" style={{ margin: '0 16px' }}>Edit</button>
 							<button type="button">Delete</button>
 						</div>
