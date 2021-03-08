@@ -10,7 +10,7 @@ import {
 } from '@components'
 
 /** utils */
-import { connectToDatabase } from '../util/mongodb'
+import { connectToDatabase } from '../../util/mongodb'
 
 export default function Decks({ decks }) {
 	return (
