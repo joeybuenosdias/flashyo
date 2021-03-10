@@ -1,6 +1,4 @@
-import Head from 'next/head'
 import PropTypes from 'prop-types'
-import { ObjectID } from 'mongodb'
 
 /** components */
 import {
@@ -10,15 +8,11 @@ import {
 } from '@components'
 
 /** utils */
-import { connectToDatabase } from '../../util/mongodb'
+import { connectToDatabase, objectIdToString } from '@util'
 
 export default function Decks({ decks }) {
 	return (
 		<div className="container">
-			<Head>
-				<title>Create Next App</title>
-				<link rel="icon" href="/favicon.ico" />
-			</Head>
 			<Navigation />
 			<DecksSection decks={decks} />
 			<Footer />
@@ -36,7 +30,7 @@ export async function getServerSideProps() {
 
 	const finalSsrDecks = ssrDecks.map((deck) => ({
 		// eslint-disable-next-line no-underscore-dangle
-		id: ObjectID(deck._id).toString(),
+		id: objectIdToString(deck._id),
 		name: deck.name,
 	}))
 

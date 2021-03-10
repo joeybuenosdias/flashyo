@@ -14,5 +14,6 @@ module.exports = {
 		'^@components(.*)$': '<rootDir>/components$1',
 		'^@layouts(.*)$': '<rootDir>/layouts$1',
 		'^@hooks(.*)$': '<rootDir>/hooks$1',
+		'^@util(.*)$': '<rootDir>/util$1',
 	},
 }

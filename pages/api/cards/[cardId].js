@@ -1,5 +1,5 @@
 import { ObjectID } from 'mongodb'
-import { connectToDatabase } from '../../../util/mongodb'
+import { connectToDatabase } from '@util'
 
 export const config = {
 	api: {

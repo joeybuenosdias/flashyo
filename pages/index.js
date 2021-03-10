@@ -4,7 +4,7 @@ import PropTypes from 'prop-types'
 import { Footer, Navigation } from '@components'
 
 /** utils */
-import { connectToDatabase } from '../util/mongodb'
+import { connectToDatabase } from '@util'
 
 export default function Home({ isConnected }) {
 	console.log('isConnected', isConnected)

@@ -9,6 +9,8 @@
             "@layouts/*": ["layouts/*"],
             "@hooks": ["hooks"],
             "@hooks/*": ["hooks/*"],
+            "@util": ["util"],
+            "@util/*": ["util/*"],
         }
     },
     "exclude": ["node_modules", ".vscode", ".next"]

@@ -36,7 +36,7 @@ if (!cached) {
 }
 
 // eslint-disable-next-line import/prefer-default-export
-export async function connectToDatabase() {
+export default async function connectToDatabase() {
 	if (cached.conn) {
 		return cached.conn
 	}

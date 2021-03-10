@@ -17,7 +17,7 @@ export default function DecksList() {
 				{decks.map((deck) => (
 					<li key={deck.id}>
 						<div style={{ margin: '16px' }}>
-							<Link href={`/decks/${deck.id}`}>
+							<Link href={`/decks/${deck.name}`}>
 								{/* eslint-disable-next-line jsx-a11y/anchor-is-valid */}
 								<a>{deck.name}</a>
 							</Link>
